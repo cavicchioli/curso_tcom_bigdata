@@ -1,0 +1,15 @@
+NameNode
+========
+
+* Puede funcionar:
+	- Standalone. Punto único de falla)
+	- Federado. Ppunto único de falla, pero la información está distribuida (federada, no replicada)
+	- Nodo secundario. Actualiza la imagen a partir del log
+	- HA. Tiene un nodo secundario que puede tomar el control
+
+* Funcionamiento:
+	- Todos los metadatos de los archivos los mantiene en RAM
+	- Mantiene un log (bitácora) donde se van guardando las operaciones que se realizan
+	- Mantiene una imagen del sistema de archivos (persistente)
+	- La demanda de RAM es grande!
+

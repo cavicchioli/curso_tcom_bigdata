@@ -1,0 +1,52 @@
+0.- Instalar VIM!
+$ sudo aptitude install vim
+
+1.- Instalar JDK (sólo necesario JRE para ejecutar)
+$ sudo aptitude install openjdk-7-jdk
+
+2.- Configurar variables de entorno JAVA_HOME. Dentro del ~/.bashrc
+export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-i386
+
+3.- Descargar Hadoop y descomprimir en ~/
+NOTA: Para descomprimir: 
+$ tar xvfz hadoop-0.23.10.tar.gz
+
+4.- Configurar variables de entorno HADOOP_INSTALL y PATH
+export HADOOP_INSTALL=/home/hadoop/hadoop-0.23.10
+export PATH=$PATH:$HADOOP_INSTALL/bin
+
+5.- Configurar Modo Pseudo-Distribuido. Dentro de $HADOOP_INSTALL/etc/hadoop
+
+<?xml version="1.0"?>
+<!-- core-site.xml -->
+<configuration>
+	<property>
+		<name>fs.default.name</name>
+		<value>hdfs://localhost/</value>
+	</property>
+</configuration>
+
+<?xml version="1.0"?>
+<!-- hdfs-site.xml -->
+<configuration>
+	<property>
+		<name>dfs.replication</name>
+		<value>1</value>
+	</property>
+</configuration>
+
+6.- Configuración SSH (authorized_keys):
+$ sudo aptitude install openssh-server
+$ ssh-keygen -t rsa 
+(INTRO hasta el final)
+$ cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+$ ssh localhost
+
+7.- Preparando el Nodo de Nombres (namenode)
+
+$ hdfs namenode -format
+
+8.- Iniciando el servicio HDFS
+$ hdfs namenode
+$ hdfs datanode
+
