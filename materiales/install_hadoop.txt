@@ -1,3 +1,6 @@
+-1.- Configurar proxy APT. Dentro del archivo /etc/apt/apt.conf agregar:
+Acquire::http::Proxy "http://IP_PROXY:PUERTO_PROXY";
+
 0.- Instalar VIM!
 $ sudo aptitude install vim
 
