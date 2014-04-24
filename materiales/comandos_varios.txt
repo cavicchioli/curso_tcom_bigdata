@@ -1,0 +1,5 @@
+# Para ejecutar map.awk y reduce.awk y luego enviar a una BD:
+$ ./map.awk movies-lines2000.txt | sort | ./reduce.awk | awk -F "\t" '{ print $2 ";" }' | mysql -u root test
+
+Donde:
+mysql -u root test	Conecta a la BD test en localhost con el usuario root sin contraseña

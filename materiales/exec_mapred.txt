@@ -1,0 +1,2 @@
+hadoop $HADOOP_INSTALL/share/hadoop/tools/lib/hadoop-streaming-0.23.10.jar -mapper map.awk -reducer reduce.awk -input /movies-lines2000.txt -output movies-lines2000
+
