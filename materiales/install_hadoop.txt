@@ -37,6 +37,14 @@ $ hadoop version
 		<name>dfs.replication</name>
 		<value>1</value>
 	</property>
+        <property>
+                <name>dfs.name.dir</name>
+                <value>file:///home/hadoop/dfs/name</value>
+        </property>
+        <property>
+                <name>dfs.data.dir</name>
+                <value>file:///home/hadoop/dfs/data</value>
+        </property>
 </configuration>
 
 6.- Configuración SSH (authorized_keys):
@@ -44,7 +52,11 @@ $ sudo aptitude install openssh-server
 $ ssh-keygen -t rsa 
 (INTRO hasta el final)
 $ cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+
+6.1.- Para probar la instalación debe poder hacer ssh sin la necesidad de introducir clave
 $ ssh localhost
+$ exit 
+(para salir de la shell remota)
 
 7.- Preparando el Nodo de Nombres (namenode)
 
