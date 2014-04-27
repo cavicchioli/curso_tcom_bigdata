@@ -1,8 +1,0 @@
-map(K1, V) : V1
-reduce(K1, V1[]) : V1
-
-map(String, String): Int
-reduce(String, Int[]): Int
-
-map(Int, Bytes[]): Float
-reduce(Int, Float[]): Float

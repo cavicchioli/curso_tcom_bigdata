@@ -6,7 +6,7 @@
 
 	if (tmpkey != key) {
 		if (key)
-			print key "\tINSERT INTO mitabla(value) VALUES(" value ")";
+			print key "\t" value;
 
 		key = tmpkey;
 		value = 0;

@@ -1,0 +1,35 @@
+1.- Descomprimir HBase en el home
+$ tar xvfz hbase-0.96XXX.tar.gz
+
+2.- Configurar las siguientes variables de entorno en .bashrc
+export HBASE_HOME=/home/hadoop/hbase-0.94.18
+
+2.1.- Agregar el bin de HBase al PATH. Por ejemplo:
+export PATH=$PATH:$HADOOP_INSTALL/bin:$HBASE_HOME/bin
+
+3.- En $HBASE_HOME/conf/hbase-env.sh
+- Agregar JAVA_HOME
+- Descomentar la variable HBASE_MANAGES_ZK
+
+4.- En $HBASE_HOME/conf/hbase-site.xml. Agregar configuración HDFS y ZooKeeper porque es un pseudo-cluster
+<configuration>
+  <property>
+    <name>hbase.zookeeper.quorum</name>
+    <value>localhost</value>
+  </property>
+  <property>
+    <name>hbase.zookeeper.property.dataDir</name>
+    <value>/home/hadoop/zookeeper</value>
+  </property>
+  <property>
+    <name>hbase.rootdir</name>
+    <value>hdfs://localhost/hbase</value>
+  </property>
+  <property>
+    <name>hbase.cluster.distributed</name>
+    <value>true</value>
+  </property>
+</configuration>
+
+5.- Probar HBase:
+$ hbase shell

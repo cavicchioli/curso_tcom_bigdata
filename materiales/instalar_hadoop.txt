@@ -15,8 +15,8 @@ NOTA: Para descomprimir:
 $ tar xvfz hadoop-0.23.10.tar.gz
 
 4.- Configurar variables de entorno HADOOP_INSTALL y PATH
-export HADOOP_INSTALL=/home/hadoop/hadoop-0.23.10
-export PATH=$PATH:$HADOOP_INSTALL/bin
+export HADOOP_HOME=/home/hadoop/hadoop-0.23.10
+export PATH=$PATH:$HADOOP_HOME/bin
 
 4.1.- Verificar la instalación de Hadoop. Puede utilizar MapReduce como una instalación local a este punto
 $ hadoop version
