@@ -1,0 +1,8 @@
+1.- Descargar y descomprimir
+
+2.- Definir variables de entorno (~/.bashrc)
+export HIVE_HOME=/home/hadoop/apache-hive-0.13.0-bin
+export PATH=$PATH:$HIVE_HOME/bin
+
+3.- Probar hive (metadata embedded)
+$ hive
